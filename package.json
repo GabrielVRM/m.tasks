@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file .env  src/http/server.ts",
+    "migrations": "npx drizzle-kit generate &&  npx drizzle-kit migrate",
     "seed": " node --env-file .env  src/db/seed.ts",
-    "build": "tsc ",
+    "build": "tsup src",
     "start": "node dist/http/server.js"
   },
   "keywords": [],

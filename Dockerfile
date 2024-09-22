@@ -10,18 +10,23 @@ COPY package*.json ./
 # Etapa 4: Instale as dependências da aplicação
 RUN npm install
 
-# Etapa 5: Copie todo o restante do código para o container
+# Etapa 5: Copie o restante do código da aplicação para o container
 COPY . .
 
 # Etapa 6: Compile os arquivos TypeScript
 RUN npm run build
 
-# Etapa 7: Exponha a porta que será utilizada pela aplicação
+# Etapa 7: Copie o script de espera para o container
+COPY wait-for-postgres.sh ./
+
+# Etapa 8: Dê permissão de execução ao script
+RUN chmod +x wait-for-postgres.sh
+
+# Etapa 9: Exponha a porta que será utilizada pela aplicação
 EXPOSE 3333
 
-# Etapa 8: Configure as variáveis de ambiente
-ENV DATABASE_URL=postgresql://docker:docker@pg:3333/ttasks
-ENV PORT=3333
+# Etapa 10: Configure as variáveis de ambiente para o PostgreSQL
+ENV DATABASE_URL=postgresql://docker:docker@pg:5432/ttasks
 
-# Etapa 9: Inicie as migrações e, em seguida, a aplicação
-CMD ["sh", "-c", "npm run seed && node dist/src/http/server.js"]
+# Etapa 11: Inicie a aplicação usando o script de espera
+CMD ["sh", "-c", "./wait-for-postgres.sh && node dist/src/server.js"]
