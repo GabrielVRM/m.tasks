@@ -28,7 +28,7 @@ app.register(getWeekSummaryRoute)
 
 const port = process.env.PORT || 3000
 
-app.listen(port, '0.0.0.0', err => {
+app.listen(port, err => {
   if (err) {
     console.error('Error starting server:', err)
     process.exit(1)
