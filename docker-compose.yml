@@ -5,31 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3333:3333"
-    environment:
-      DATABASE_URL: postgresql://docker:docker@pg:5432/ttasks
-      PORT: 3333
-    depends_on:
-      - pg
-    networks:
-      - backend
-
   pg:
-    image: postgres:14
+    image: bitnami/postgresql/latest
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: ttasks
     ports:
       - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - backend
-
-networks:
-  backend:
-
-volumes:
-  pgdata:
