@@ -29,4 +29,4 @@ EXPOSE 3333
 ENV DATABASE_URL=postgresql://docker:docker@pg:5432/ttasks
 
 # Etapa 11: Inicie a aplicação usando o script de espera
-CMD ["sh", "-c", "./wait-for-postgres.sh && node dist/src/server.js"]
+CMD ["sh", "-c", "npm run migrations && npm run seed && node dist/src/server.js"]
