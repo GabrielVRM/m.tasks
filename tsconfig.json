@@ -13,5 +13,6 @@
     "moduleResolution": "node16",
     "outDir": "./dist",
     "rootDir": "."
-  }
+  },
+  "include": ["src/**/*", "drizzle.config.ts"]
 }
