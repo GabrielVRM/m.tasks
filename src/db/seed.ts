@@ -1,6 +1,5 @@
 // popular o BD com dados ficticioa, para não começa a app sem dados no Bd!
 
-import { date } from 'drizzle-orm/mysql-core'
 import { client, db } from '.'
 import { goalCompletions, goals } from './schema'
 import dayjs from 'dayjs'
