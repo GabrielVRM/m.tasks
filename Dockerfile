@@ -19,8 +19,5 @@ RUN npm run build
 # Etapa 7: Exponha a porta que será utilizada pela aplicação
 EXPOSE 3333
 
-# Etapa 8: Configure as variáveis de ambiente para o PostgreSQL
-ENV DATABASE_URL=postgresql://docker:docker@pg:5432/ttasks
-
-# Etapa 9: Inicie a aplicação usando o script de espera
-CMD ["sh", "-c", "node dist/src/http/server.js"]
+# Etapa 9: Inicie a aplicação usando um script de espera
+CMD ["sh", "-c", "npm run migrate && npm run seed && node dist/app/server.js"]

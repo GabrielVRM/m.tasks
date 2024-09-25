@@ -1,10 +1,11 @@
-import z from 'zod'
+import z from "zod"
+import { config } from 'dotenv';
 
+config()
+
+console.log(process.env.DATABASE_URL)
 const envSchema = z.object({
-  DATABASE_URL: z.string().url(),
+    DATABASE_URL: z.string().url()
 })
 
 export const env = envSchema.parse(process.env)
-
-// o meu envSchema.parse, está garantido, que os dados que ele receberá do process.env é identico aou passado no envSchema
-// caso contrario dara erro!!

@@ -1,4 +1,10 @@
 {
-    "editor.formatOnSave": true,
+  "dotenv.enableAutocloaking": false,
+  "cSpell.words": [
+    "fastify"
+  ],
+  "editor.formatOnSave": true,
+  "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
+  }
 }

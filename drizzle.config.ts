@@ -1,12 +1,14 @@
-import { defineConfig } from 'drizzle-kit'
-import { env } from './src/env'
-import path from 'node:path'
+import { defineConfig } from "drizzle-kit";
+import { env } from "./src/env";
+
 
 export default defineConfig({
-  schema: path.join(__dirname, './src/db/schema.ts'), // Caminho absoluto
-  out: './.migrations',
-  dialect: 'postgresql',
+    schema: './src/db/schema.ts',
+    out: "./.migrations",
+
+  dialect: "postgresql",
+
   dbCredentials: {
-    url: env.DATABASE_URL,
+    url:env.DATABASE_URL,
   },
-})
+});

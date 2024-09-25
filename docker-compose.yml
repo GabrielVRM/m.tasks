@@ -1,20 +1,24 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  app:
+  pg:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=m.tasks
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+ 
     build:
       context: .
       dockerfile: Dockerfile
-  pg:
-    image: bitnami/postgresql:latest
-    environment:
-      POSTGRES_USER: docker
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: ttasks
     ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/bitnami/postgresql
-
-volumes:
-  pgdata:
+      - "3333:3333"
+    environment:
+      - DATABASE_URL=postgresql://docker:docker@localhost:5432/m.tasks
+    depends_on:
+      - pg

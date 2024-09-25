@@ -1,13 +1,12 @@
 {
-  "name": "m-task",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch --env-file .env  src/http/server.ts",
-    "migrations": "npx drizzle-kit generate &&  npx drizzle-kit migrate",
-    "seed": "dotenv -e .env -- node src/db/seed.ts",
-    "build": "tsup src",
-    "start": "node dist/http/server.js"
+    "dev": "tsx watch --env-file .env ./src/app/server.ts",
+"build": "tsup src",
+    "migrate":"npx drizzle-kit generate && npx drizzle-kit migrate || true",
+    "seed": "tsx src/db/seed.js"
   },
   "keywords": [],
   "author": "",
@@ -15,23 +14,22 @@
   "description": "",
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@types/node": "^22.5.4",
-    "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.24.2",
-    "tsup": "^8.3.0",
-    "tsx": "^4.19.0",
-    "typescript": "^5.6.2"
+    "@faker-js/faker": "8.4.1",
+    "@types/node": "22.1.0",
+    "drizzle-kit": "0.24.0",
+    "tsup": "8.2.4",
+    "tsx": "4.17.0",
+    "typescript": "5.5.4"
   },
   "dependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
-    "dayjs": "^1.11.13",
+    "@fastify/cors": "9.0.1",
+    "@paralleldrive/cuid2": "2.2.2",
+    "dayjs": "1.11.12",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.33.0",
-    "fastify": "^4.28.1",
-    "fastify-cors": "^3.0.0",
-    "fastify-type-provider-zod": "^2.0.0",
-    "pm2": "^5.4.2",
-    "postgres": "^3.4.4",
-    "zod": "^3.23.8"
+    "drizzle-orm": "0.33.0",
+    "fastify": "4.28.1",
+    "fastify-type-provider-zod": "2.0.0",
+    "postgres": "3.4.4",
+    "zod": "3.23.8"
   }
 }

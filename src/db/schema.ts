@@ -1,7 +1,6 @@
 import { pgTable, text, integer, timestamp } from 'drizzle-orm/pg-core'
 import { createId } from '@paralleldrive/cuid2'
 
-//  .$defaultFn(() => createId()): cria uma uuid unico, que não seja numeros ex, 1,2,3..
 export const goals = pgTable('goals', {
   id: text('id')
     .primaryKey()
