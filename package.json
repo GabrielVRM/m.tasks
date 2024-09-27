@@ -4,8 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch --env-file .env ./src/app/server.ts",
-"build": "tsup src",
-    "migrate":"npx drizzle-kit generate && npx drizzle-kit migrate || true",
+    "build": "tsup src",
+    "start": "nodemon dist/app/server.js",
+    "migrate": "npx drizzle-kit generate && npx drizzle-kit migrate",
     "seed": "tsx src/db/seed.js"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
     "@faker-js/faker": "8.4.1",
     "@types/node": "22.1.0",
     "drizzle-kit": "0.24.0",
+    "nodemon": "^3.1.7",
     "tsup": "8.2.4",
     "tsx": "4.17.0",
     "typescript": "5.5.4"

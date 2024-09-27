@@ -11,7 +11,7 @@ import { createGoalCompletionRoute } from './routes/create-goal-completion'
 config()
 
 const app = fastify()
-const port = process.env.PORT || 4000
+const port = Number(process.env.PORT) || 4000
 console.log(port)
 app.register(fastifyCors, {
   origin: '*',
@@ -22,6 +22,12 @@ app.register(getPedingGoalRoute)
 app.register(createGoalRoute)
 app.register(createGoalCompletionRoute)
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Http server running! ${port}`)
-})
+app.listen(
+  {
+    port: port,
+    host: '0.0.0.0',
+  },
+  () => {
+    console.log(`Http server running! ${port}`)
+  }
+)
