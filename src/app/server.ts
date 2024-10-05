@@ -7,6 +7,7 @@ import { getWeekSummaryRoute } from './routes/get-week-summary'
 import { getPedingGoalRoute } from './routes/get-week-peding-goals'
 import { createGoalRoute } from './routes/create-goal'
 import { createGoalCompletionRoute } from './routes/create-goal-completion'
+import { deleteGoalsRoute } from './routes/delete-goals-completion'
 
 config()
 
@@ -21,6 +22,7 @@ app.register(getWeekSummaryRoute)
 app.register(getPedingGoalRoute)
 app.register(createGoalRoute)
 app.register(createGoalCompletionRoute)
+app.register(deleteGoalsRoute)
 
 app.listen(
   {

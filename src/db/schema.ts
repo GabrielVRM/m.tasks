@@ -23,3 +23,16 @@ export const goalCompletions = pgTable('goal_completions', {
     .notNull()
     .defaultNow(),
 })
+
+export const users = pgTable('users', {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => createId()),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  password: text('password').notNull(),
+  token: text('token').notNull(),
+  createAt: timestamp('created_at', { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+})

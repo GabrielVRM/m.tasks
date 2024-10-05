@@ -1,4 +1,3 @@
-import { error } from 'console'
 import { createGoal } from '../../controllers/create-goal'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 
