@@ -24,24 +24,24 @@ async function seed() {
     })
     .returning()
 
-  // Inserindo os objetivos
-  const result = await db
-    .insert(goals)
-    .values([
-      {
-        title: 'acordar cedo',
-        desiredWeeklyFrequency: 5,
-        userId: user[0].id, // Use o ID do usuário inserido
-      },
-    ])
-    .returning()
+  //   // Inserindo os objetivos
+  //   const result = await db
+  //     .insert(goals)
+  //     .values([
+  //       {
+  //         title: 'acordar cedo',
+  //         desiredWeeklyFrequency: 5,
+  //         userId: user[0].id, // Use o ID do usuário inserido
+  //       },
+  //     ])
+  //     .returning()
 
-  // Inserindo as conclusões de objetivos
-  await db
-    .insert(goalCompletions)
-    .values([
-      { goalId: result[0].id, createAt: startOfWeek.add(3, 'day').toDate() },
-    ])
+  //   // Inserindo as conclusões de objetivos
+  //   await db
+  //     .insert(goalCompletions)
+  //     .values([
+  //       { goalId: result[0].id, createAt: startOfWeek.add(3, 'day').toDate() },
+  //     ])
 }
 
 seed().finally(() => {
