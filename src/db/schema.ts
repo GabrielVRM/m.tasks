@@ -19,7 +19,7 @@ export const goals = pgTable('goals', {
   title: text('title').notNull(),
   desiredWeeklyFrequency: integer('desired_weekly_frequency').notNull(),
   userId: text('user_id')
-    .references(() => users.id)
+    .references(() => users.id, { onDelete: 'cascade' })
     .notNull(),
   createAt: timestamp('created_at', { withTimezone: true })
     .notNull()
