@@ -4,9 +4,9 @@ import dayjs from 'dayjs'
 import bcrypt from 'bcrypt' // Importar bcrypt para hash da senha
 
 async function seed() {
-  await db.delete(users)
-  await db.delete(goals)
   await db.delete(goalCompletions)
+  await db.delete(goals)
+  await db.delete(users)
 
   const startOfWeek = dayjs().startOf('week')
 
