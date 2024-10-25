@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3333
 
 # Etapa 9: Inicie a aplicação usando um script de espera
-CMD ["sh", "-c", "npm run migrate && npm run seed && node dist/app/server.js"]
+CMD ["sh", "-c", "npm run migrate && node dist/app/server.js"]
