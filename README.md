@@ -1,4 +1,4 @@
-<h1> React + TypeScript - Gerenciador de Metas Diárias </h1>
+<h1> Gerenciador de Metas Diárias </h1>
 
 <h3>Este projeto tem como intuito criar uma aplicação moderna, cujo objetivo é organizar as metas diárias do usuário de forma visualmente agradável e eficiente.</h3>
 
